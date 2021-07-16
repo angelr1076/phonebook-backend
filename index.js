@@ -79,16 +79,17 @@ app.post("/api/persons", (request, response) => {
     });
   }
 
-  const existingPerson = persons.find(
-    (person) => person.name.toLowerCase() === body.name.toLowerCase(),
-  );
+  // For section 3.14 we will allow multiple entries per person
+  // const existingPerson = persons.find(
+  //   (person) => person.name.toLowerCase() === body.name.toLowerCase(),
+  // );
 
-  if (existingPerson) {
-    response.status(400).json({
-      error: "Name must be unique",
-    });
-    return false;
-  }
+  // if (existingPerson) {
+  //   response.status(400).json({
+  //     error: "Name must be unique",
+  //   });
+  //   return false;
+  // }
 
   const person = new Person({
     name: body.name,
